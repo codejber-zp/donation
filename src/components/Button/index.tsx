@@ -1,22 +1,33 @@
 import React from 'react';
 import { twMerge } from 'tailwind-merge';
 
-export interface ButtonProps extends React.ComponentPropsWithoutRef<'button'> {
-  text: string;
-}
-
-const BUTTON_VARIANTS = {
-  primary: 'bg-purpleLight hover:bg-blue-600 text-white',
-  secondary: 'bg-gray-500 hover:bg-gray-600 text-white',
-  danger: 'bg-red-500 hover:bg-red-600 text-white',
+type ButtonVariants = {
+  contained: string;
+  outlined: string;
 };
 
-export default function Button({ text, ...props }: ButtonProps) {
+export interface ButtonProps extends React.ComponentPropsWithoutRef<'button'> {
+  text: string;
+  variant?: keyof ButtonVariants;
+}
+
+const BUTTON_VARIANTS: ButtonVariants = {
+  contained:
+    'bg-purpleMidnight hover:bg-purpleLight text-white active:bg-purpleDark',
+  outlined:
+    'text-purpleMidnight bg-transparent hover:bg-purpleTransparent10 active:bg-purpleTransparent25',
+};
+
+export default function Button({
+  text,
+  variant = 'contained',
+  ...props
+}: ButtonProps) {
   return (
     <button
       className={twMerge(
-        'text-white h-button w-button rounded-br-md border px-space3 py-space2 text-base font-semibold leading-5',
-        true && BUTTON_VARIANTS['primary'],
+        'h-button w-button rounded-br-md border px-space3 py-space2 text-base font-semibold leading-5',
+        BUTTON_VARIANTS[variant],
       )}
       {...props}
     >

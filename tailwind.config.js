@@ -4,9 +4,12 @@ module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     colors: {
-      purple: '#423C66',
+      purpleMidnight: '#423C66',
       purpleLight: '#645D93',
       purpleDark: '#241E47',
+      purpleGray: '#595D7B',
+      purpleTransparent10: 'rgba(178, 167, 244, 0.1)',
+      purpleTransparent25: 'rgba(178, 167, 244, 0.25)',
       white: '#FFFFFF',
     },
     fontFamily: {

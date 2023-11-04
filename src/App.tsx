@@ -4,7 +4,7 @@ import Button from './components/Button';
 function App() {
   return (
     <div className='font-sans'>
-      <Button text='Donation' />
+      <Button variant='outlined' text='Donation' />
     </div>
   );
 }
