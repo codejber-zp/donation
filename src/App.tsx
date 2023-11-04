@@ -1,10 +1,11 @@
 import React from 'react';
+import Button from './components/Button';
 
 function App() {
   return (
-      <h1 className="text-3xl font-bold underline bg-purpleDark">
-        Donation
-      </h1>
+    <div className='font-sans'>
+      <Button text='Donation' />
+    </div>
   );
 }
 
