@@ -8,6 +8,7 @@ module.exports = {
       purpleLight: '#645D93',
       purpleDark: '#241E47',
       purpleGray: '#595D7B',
+      midnightGray: '#4D6475',
       purpleTransparent10: 'rgba(178, 167, 244, 0.1)',
       purpleTransparent25: 'rgba(178, 167, 244, 0.25)',
       white: '#FFFFFF',
@@ -16,6 +17,9 @@ module.exports = {
       sans: ['"Work Sans"', 'sans-serif'],
     },
     extend: {
+      backgroundImage: {
+        dollar: "url('/public/dollar.svg')",
+      },
       spacing: {
         xs: '0.75rem',
         sm: '1rem',
