@@ -11,6 +11,9 @@ module.exports = {
       midnightGray: '#4D6475',
       purpleTransparent10: 'rgba(178, 167, 244, 0.1)',
       purpleTransparent25: 'rgba(178, 167, 244, 0.25)',
+      blueGray50: '#E9EEF2',
+      lightGray: '#F3F5FE',
+      lightGray2: '#E8EAF2',
       white: '#FFFFFF',
     },
     fontFamily: {
@@ -19,6 +22,8 @@ module.exports = {
     extend: {
       backgroundImage: {
         dollar: "url('/public/dollar.svg')",
+        'chevron-right': "url('/public/chevron-right.svg')",
+        'chevron-left': "url('/public/chevron-left.svg')",
       },
       spacing: {
         xs: '0.75rem',

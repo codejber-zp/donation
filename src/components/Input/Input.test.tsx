@@ -1,8 +1,8 @@
 import React from 'react';
 import { screen, render, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
 import Input, { InputProps } from './';
-import userEvent from '@testing-library/user-event';
 
 const defaultProps: InputProps = {
   label: 'Some label',
@@ -12,8 +12,11 @@ const defaultProps: InputProps = {
 const renderComponent = (props: InputProps = defaultProps) =>
   render(<Input {...props} />);
 describe('Input', () => {
-  test('should be render with proper role and label', () => {
+  beforeEach(() => {
     renderComponent();
+  });
+
+  test('should be render with proper role and label', () => {
     const input = screen.getByRole('textbox', {
       name: /some label/i,
     });
@@ -23,7 +26,12 @@ describe('Input', () => {
     expect(label).toBeInTheDocument();
   });
 
-  test('should display initial placeholder ', () => {});
+  test('should display initial placeholder ', () => {
+    const input = screen.getByRole('textbox', {
+      name: /some label/i,
+    });
+    expect(input).toHaveAttribute('placeholder', '0.00');
+  });
 
   test.each([
     ['not add comma', { amount: '123', formattedAmount: '123' }],
@@ -38,7 +46,6 @@ describe('Input', () => {
       { amount: '1.02', formattedAmount: '1.02' },
     ],
   ])('should %s', async (_, testCase) => {
-    renderComponent();
     const input = screen.getByRole('textbox', {
       name: /some label/i,
     });

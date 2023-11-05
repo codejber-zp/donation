@@ -42,7 +42,7 @@ export default function Input({ label, ...props }: InputProps) {
         name='amount'
         aria-label='amount'
         className={twMerge(
-          "text-purpleGray bg-transparent p-sm border-purpleMidnight before:text-midnightGray h-button w-button rounded-md border bg-[url('/public/dollar.svg')] bg-[position:0%_50%] bg-no-repeat text-2xl font-medium leading-7",
+          "text-purpleGray bg-transparent p-sm border-blueGray50 focus:outline-purpleMidnight h-button w-button rounded-md border bg-[url('/public/dollar.svg')] bg-[position:0%_50%] bg-no-repeat text-2xl font-medium leading-7 focus:outline-1",
           'pl-m',
         )}
         {...props}
