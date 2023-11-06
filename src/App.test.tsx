@@ -4,9 +4,6 @@ import App from './App';
 import userEvent from '@testing-library/user-event';
 
 const renderComponent = () => render(<App />);
-// render(<App />);
-// const linkElement = screen.getByText(/donation/i);
-// expect(linkElement).toBeInTheDocument();
 
 describe('App', () => {
   test('should datepicker change date on click', async () => {

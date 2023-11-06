@@ -15,12 +15,16 @@ export default function Heading({
 }: HeadingProps) {
   return (
     <header
-      className='gap-m flex'
+      className='gap-m flex flex-col sm:flex-row'
       aria-label={props['aria-label'] || 'header'}
       {...props}
     >
       {icon && (
-        <div role='img' aria-label='heading icon'>
+        <div
+          className='flex justify-center'
+          role='img'
+          aria-label='heading icon'
+        >
           {icon}
         </div>
       )}

@@ -21,7 +21,6 @@ export default function Input({
   onAmountChange,
   ...props
 }: InputProps) {
-  // const [value, setValue] = useState<string>('');
   const [cursor, setCursor] = useState<number | null>(null);
   const ref = useRef<HTMLInputElement>(null);
 
@@ -35,7 +34,6 @@ export default function Input({
     setCursor(
       (e.target.selectionStart || 0) + getCursorAddIndex(value, e.target.value),
     );
-    // setValue(e.target.value);
     onAmountChange?.(formatAmount(e.target.value));
   };
 
@@ -50,7 +48,7 @@ export default function Input({
         name='amount'
         aria-label='amount'
         className={twMerge(
-          "text-purpleGray bg-transparent p-sm border-blueGray50 focus:outline-purpleMidnight h-button w-button rounded-md border bg-[url('/public/dollar.svg')] bg-[position:0%_50%] bg-no-repeat text-2xl font-medium leading-7 focus:outline-1",
+          "text-purpleGray bg-transparent p-sm border-blueGray50 focus:outline-purpleMidnight container h-button rounded-md border bg-[url('/public/dollar.svg')] bg-[position:0%_50%] bg-no-repeat text-2xl font-medium leading-7 focus:outline-1 sm:w-button",
           'pl-m',
         )}
         {...props}

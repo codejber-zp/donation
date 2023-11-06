@@ -26,7 +26,7 @@ export default function Button({
   return (
     <button
       className={twMerge(
-        'h-button w-button rounded-md border px-space3 py-space2 text-base font-semibold leading-5',
+        'container h-button rounded-md border px-space3 py-space2 text-base font-semibold leading-5 sm:w-button',
         BUTTON_VARIANTS[variant],
       )}
       {...props}

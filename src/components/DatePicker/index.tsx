@@ -42,7 +42,7 @@ export default function DatePicker({
       aria-label={label}
     >
       <div>{label}</div>
-      <div className='text-purpleGray bg-transparent border-purpleMidnight py-xs flex h-button w-button items-center justify-between rounded-md border p-2 font-medium leading-7'>
+      <div className='text-purpleGray bg-transparent border-purpleMidnight py-xs container flex h-button items-center justify-between rounded-md border p-2 font-medium leading-7 sm:w-button'>
         <button
           aria-label='chevron left'
           disabled={isPrevDisabled}

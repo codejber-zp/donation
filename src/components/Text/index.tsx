@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import { twMerge } from 'tailwind-merge';
 
 export interface TextProps extends React.ComponentPropsWithoutRef<'p'> {
@@ -21,7 +21,7 @@ export default function Text({
         size === 's' && 'text-base font-normal',
         size === 'm' && 'text-2xl font-medium',
         size === 'xl' && 'text-[2rem] font-bold',
-        'text-purpleGray leading-6',
+        'text-purpleGray text-center leading-6 sm:text-left',
         className,
       )}
     >
