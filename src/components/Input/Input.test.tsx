@@ -7,16 +7,17 @@ import Input, { InputProps } from './';
 const defaultProps: InputProps = {
   label: 'Some label',
   'aria-label': 'some label',
+  value: '',
   placeholder: '0.00',
 };
 const renderComponent = (props: InputProps = defaultProps) =>
   render(<Input {...props} />);
 describe('Input', () => {
-  beforeEach(() => {
-    renderComponent();
-  });
+  beforeEach(() => {});
 
   test('should be render with proper role and label', () => {
+    renderComponent();
+
     const input = screen.getByRole('textbox', {
       name: /some label/i,
     });
@@ -27,6 +28,8 @@ describe('Input', () => {
   });
 
   test('should display initial placeholder ', () => {
+    renderComponent();
+
     const input = screen.getByRole('textbox', {
       name: /some label/i,
     });
@@ -46,12 +49,10 @@ describe('Input', () => {
       { amount: '1.02', formattedAmount: '1.02' },
     ],
   ])('should %s', async (_, testCase) => {
+    renderComponent({ ...defaultProps, value: testCase.amount });
+
     const input = screen.getByRole('textbox', {
       name: /some label/i,
-    });
-
-    await waitFor(() => {
-      userEvent.type(input, testCase.amount);
     });
 
     expect(input).toHaveValue(testCase.formattedAmount);

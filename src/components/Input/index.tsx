@@ -5,6 +5,8 @@ import { formatAmount } from '../../utils/amount';
 
 export interface InputProps extends React.ComponentPropsWithoutRef<'input'> {
   label: string;
+  value: string;
+  onAmountChange?: (amount: string) => void;
 }
 
 const getCursorAddIndex = (prevValue: string, currValue: string): number => {
@@ -13,8 +15,13 @@ const getCursorAddIndex = (prevValue: string, currValue: string): number => {
   return currAmount.length % 3 === 1 && prevAmount.length % 3 === 0 ? 1 : 0;
 };
 
-export default function Input({ label, ...props }: InputProps) {
-  const [value, setValue] = useState<string>('');
+export default function Input({
+  label,
+  value,
+  onAmountChange,
+  ...props
+}: InputProps) {
+  // const [value, setValue] = useState<string>('');
   const [cursor, setCursor] = useState<number | null>(null);
   const ref = useRef<HTMLInputElement>(null);
 
@@ -28,7 +35,8 @@ export default function Input({ label, ...props }: InputProps) {
     setCursor(
       (e.target.selectionStart || 0) + getCursorAddIndex(value, e.target.value),
     );
-    setValue(e.target.value);
+    // setValue(e.target.value);
+    onAmountChange?.(formatAmount(e.target.value));
   };
 
   return (

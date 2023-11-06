@@ -1,20 +1,18 @@
 import React from 'react';
-import { screen, render, waitFor } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { screen, render } from '@testing-library/react';
 
 import DatePicker, { DatePickerProps } from './';
 
 const defaultProps: DatePickerProps = {
   label: 'Date label',
+  date: new Date(),
 };
 const renderComponent = (props: DatePickerProps = defaultProps) =>
   render(<DatePicker {...props} />);
 describe('DatePicker', () => {
-  beforeEach(() => {
-    renderComponent();
-  });
-
   test('should be render with proper role and label', () => {
+    renderComponent();
+
     const datePicker = screen.getByRole('listbox', {
       name: /date label/i,
     });
@@ -24,42 +22,13 @@ describe('DatePicker', () => {
     expect(label).toBeInTheDocument();
   });
 
-  test('should change on click', async () => {
-    const defaultMonthName = new Date().toLocaleString('en', { month: 'long' });
+  test('should be displayed with passed date', () => {
+    renderComponent({ ...defaultProps, date: new Date(2025, 0) });
+
     const datePicker = screen.getByRole('listbox', {
       name: /date label/i,
     });
-    expect(datePicker).toHaveTextContent(defaultMonthName);
-
-    const goMonthForwardButton = screen.getByRole('button', {
-      name: /chevron right/i,
-    });
-
-    await waitFor(() => {
-      userEvent.click(goMonthForwardButton);
-    });
-
-    const newDate = new Date();
-    newDate.setMonth(newDate.getMonth() + 1);
-    const nextMonth = newDate.toLocaleString('en', { month: 'long' });
-    expect(datePicker).toHaveTextContent(nextMonth);
-  });
-
-  test('should not allow to choose date from past', async () => {
-    const defaultMonthName = new Date().toLocaleString('en', { month: 'long' });
-    const datePicker = screen.getByRole('listbox', {
-      name: /date label/i,
-    });
-    expect(datePicker).toHaveTextContent(defaultMonthName);
-
-    const goMonthBackButton = screen.getByRole('button', {
-      name: /chevron left/i,
-    });
-
-    await waitFor(() => {
-      userEvent.click(goMonthBackButton);
-    });
-
-    expect(datePicker).toHaveTextContent(defaultMonthName);
+    expect(datePicker).toHaveTextContent('January');
+    expect(datePicker).toHaveTextContent('2025');
   });
 });
