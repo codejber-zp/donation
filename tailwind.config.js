@@ -14,7 +14,9 @@ module.exports = {
       blueGray50: '#E9EEF2',
       lightGray: '#F3F5FE',
       lightGray2: '#E8EAF2',
+      lightGray3: '#F4F8FA',
       white: '#FFFFFF',
+      salmon: '#FFDBCB',
     },
     fontFamily: {
       sans: ['"Work Sans"', 'sans-serif'],
@@ -26,6 +28,7 @@ module.exports = {
         'chevron-left': "url('/public/chevron-left.svg')",
       },
       spacing: {
+        xxs: '0.25rem',
         xs: '0.75rem',
         sm: '1rem',
         m: '1.5rem',

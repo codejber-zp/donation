@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export interface DatePickerProps {
+export interface DatePickerProps extends React.ComponentPropsWithoutRef<'div'> {
   label: string;
 }
 
@@ -22,7 +22,7 @@ export default function DatePicker({ label, ...props }: DatePickerProps) {
       role='listbox'
       className='text-midnightGray flex flex-col text-sm font-medium'
       {...props}
-      aria-label={label || 'date picker'}
+      aria-label={label}
     >
       <div>{label}</div>
       <div className='text-purpleGray bg-transparent border-purpleMidnight py-xs flex h-button w-button items-center justify-between rounded-md border p-2 font-medium leading-7'>
